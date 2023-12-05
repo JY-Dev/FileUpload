@@ -1,4 +1,4 @@
-rootProject.name = "fileupload"
+rootProject.name = "FileUpload"
 
 val modulesDir = File(rootProject.projectDir, "app")
 val modulesDomainDir = File(rootProject.projectDir, "domain")
