@@ -1,4 +1,4 @@
-package com.jydev.file.application.model.command
+package com.jydev.applicaiton.file.model.command
 
 import com.jydev.media.file.StorageType
 import java.io.InputStream

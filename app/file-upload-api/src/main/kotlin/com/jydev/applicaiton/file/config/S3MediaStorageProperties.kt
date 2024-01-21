@@ -1,4 +1,4 @@
-package com.jydev.file.application.config
+package com.jydev.applicaiton.file.config
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 

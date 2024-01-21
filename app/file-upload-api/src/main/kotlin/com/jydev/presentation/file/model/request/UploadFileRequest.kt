@@ -1,4 +1,4 @@
-package com.jydev.file.presentation.model.request
+package com.jydev.presentation.file.model.request
 
 import org.springframework.web.multipart.MultipartFile
 

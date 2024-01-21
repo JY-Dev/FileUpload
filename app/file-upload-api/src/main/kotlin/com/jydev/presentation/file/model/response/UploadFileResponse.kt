@@ -1,4 +1,4 @@
-package com.jydev.file.presentation.model.response
+package com.jydev.presentation.file.model.response
 
 data class UploadFileResponse(
         val fileId : Long,

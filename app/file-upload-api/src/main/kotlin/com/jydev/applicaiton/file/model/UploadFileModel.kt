@@ -1,4 +1,4 @@
-package com.jydev.file.application.model
+package com.jydev.applicaiton.file.model
 
 data class UploadFileModel(
         val fileId : Long,

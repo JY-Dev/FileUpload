@@ -1,7 +1,7 @@
-package com.jydev.file.application
+package com.jydev.applicaiton.file
 
-import com.jydev.file.application.config.LocalMediaStorageProperties
-import com.jydev.file.application.config.S3MediaStorageProperties
+import com.jydev.applicaiton.file.config.LocalMediaStorageProperties
+import com.jydev.applicaiton.file.config.S3MediaStorageProperties
 import com.jydev.media.file.StorageConfiguration
 import com.jydev.media.file.StorageType
 import org.springframework.stereotype.Component

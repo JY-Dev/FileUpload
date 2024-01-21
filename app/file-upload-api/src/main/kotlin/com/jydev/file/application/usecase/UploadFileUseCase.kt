@@ -1,5 +1,6 @@
-package com.jydev.file.application
+package com.jydev.file.application.usecase
 
+import com.jydev.file.application.StorageConfigurationResolver
 import com.jydev.file.application.model.UploadFileModel
 import com.jydev.file.application.model.command.UploadFileCommand
 import com.jydev.media.file.MediaFileAction

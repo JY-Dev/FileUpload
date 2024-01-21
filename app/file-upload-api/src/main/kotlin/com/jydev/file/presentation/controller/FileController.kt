@@ -1,9 +1,10 @@
-package com.jydev.file.presentation
+package com.jydev.file.presentation.controller
 
-import com.jydev.file.application.DeleteFileUseCase
-import com.jydev.file.application.UploadFileUseCase
+import com.jydev.file.application.usecase.DeleteFileUseCase
+import com.jydev.file.application.usecase.UploadFileUseCase
 import com.jydev.file.application.model.command.DeleteFileCommand
 import com.jydev.file.application.model.command.UploadFileCommand
+import com.jydev.file.presentation.MultipartFilePathResolver
 import com.jydev.file.presentation.model.response.UploadFileResponse
 import com.jydev.media.file.StorageType
 import org.springframework.http.HttpStatus
