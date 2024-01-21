@@ -34,12 +34,16 @@ class UploadFileUseCase(
                 storageType = command.storageType,
                 originalFileName = command.originalFileName,
                 fileSize = command.fileSize,
-                fileUrl = fileUrl
+                fileUrl = fileUrl,
+                filePath = command.filePath
         )
 
         fileMetaDataRepository.save(fileMetaData)
 
-        return UploadFileModel(fileUrl)
+        return UploadFileModel(
+                fileId = fileMetaData.id,
+                fileUrl = fileUrl
+        )
     }
 
     private fun createStoreFileCommand(command: UploadFileCommand) = MediaFileStrategy.StoreFileCommand(

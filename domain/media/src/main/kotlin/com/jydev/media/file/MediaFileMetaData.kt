@@ -6,6 +6,7 @@ import jakarta.persistence.*
 @Table(name = "MEDIA_FILE_META_DATA")
 class MediaFileMetaData(
         storageType: StorageType,
+        filePath : String,
         originalFileName: String,
         fileSize: Long,
         fileUrl: String
@@ -22,6 +23,10 @@ class MediaFileMetaData(
 
     @Column(name = "FILE_SIZE", nullable = false)
     var fileSize: Long = fileSize
+        private set
+
+    @Column(name = "FILE_PATH", nullable = false)
+    var filePath: String = filePath
         private set
 
     @Column(name = "ORIGINAL_FILE_NAME", nullable = false)
