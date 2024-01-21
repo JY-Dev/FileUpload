@@ -1,0 +1,19 @@
+spring:
+  mvc:
+    static-path-pattern: /file/**
+  web:
+    resources:
+      static-locations:
+        - file:./app/file-upload-api/file
+        - classpath:/static/
+
+file:
+  media:
+    base-root: file
+    storage:
+      s3:
+        base-url: http://cloudfront.com
+        bucket: test-bucket
+      local:
+        base-url: http://localhost:8080/
+        path: ./app/file-upload-api
