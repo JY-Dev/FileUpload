@@ -1,8 +1,9 @@
-package com.jydev.media.file.infra
+package com.jydev.domain.media.file.infra
 
-import com.jydev.media.file.MediaFileRepository
-import com.jydev.media.file.MediaFileStrategy
-import com.jydev.media.file.StorageConfiguration
+import com.jydev.domain.media.file.FileStrategy
+import com.jydev.domain.media.file.MediaFileRepository
+import com.jydev.domain.media.file.MediaFileStrategy
+import com.jydev.domain.media.file.StorageConfiguration
 import org.springframework.stereotype.Repository
 import java.io.IOException
 import java.nio.file.Files
@@ -15,7 +16,7 @@ class LocalFileRepository : MediaFileRepository {
     private val localConfigClass = StorageConfiguration.Local::class.java
     override val storageConfigClass: Class<out StorageConfiguration> = localConfigClass
 
-    override fun save(storageConfiguration: StorageConfiguration, command: MediaFileStrategy.StoreFileCommand) {
+    override fun save(storageConfiguration: StorageConfiguration, command: FileStrategy.StoreFileCommand) {
 
         validateStoreFile(command)
 
@@ -29,7 +30,7 @@ class LocalFileRepository : MediaFileRepository {
             Files.copy(command.fileInputStream, filePath, StandardCopyOption.REPLACE_EXISTING)
         } catch (exception: IOException) {
 
-            val deleteCommand = MediaFileStrategy.DeleteFileCommand(command.filePath)
+            val deleteCommand = FileStrategy.DeleteFileCommand(command.filePath)
             delete(storageConfiguration, deleteCommand)
 
             throw IllegalArgumentException(
@@ -38,7 +39,7 @@ class LocalFileRepository : MediaFileRepository {
         }
     }
 
-    override fun delete(storageConfiguration: StorageConfiguration, command: MediaFileStrategy.DeleteFileCommand) {
+    override fun delete(storageConfiguration: StorageConfiguration, command: FileStrategy.DeleteFileCommand) {
 
         val config = castConfiguration(storageConfiguration, localConfigClass)
 
@@ -53,7 +54,7 @@ class LocalFileRepository : MediaFileRepository {
         }
     }
 
-    private fun validateStoreFile(command: MediaFileStrategy.StoreFileCommand) {
+    private fun validateStoreFile(command: FileStrategy.StoreFileCommand) {
 
         val filePath: String = command.filePath
 

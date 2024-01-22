@@ -1,16 +1,16 @@
-package com.jydev.media.file
+package com.jydev.domain.media.file
 
 interface MediaFileRepository {
     val storageConfigClass: Class<out StorageConfiguration>
 
     fun save(
-            storageConfiguration: StorageConfiguration,
-            command : MediaFileStrategy.StoreFileCommand
+        storageConfiguration: StorageConfiguration,
+        command : FileStrategy.StoreFileCommand
     )
 
     fun delete(
-            storageConfiguration: StorageConfiguration,
-            command : MediaFileStrategy.DeleteFileCommand
+        storageConfiguration: StorageConfiguration,
+        command : FileStrategy.DeleteFileCommand
     )
 
     fun resolveConfiguration(configuration : StorageConfiguration) : Boolean {

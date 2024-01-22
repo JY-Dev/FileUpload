@@ -1,15 +1,15 @@
-package com.jydev.media.file
+package com.jydev.domain.media.file
 
 import jakarta.persistence.*
 
 @Entity
 @Table(name = "MEDIA_FILE_META_DATA")
 class MediaFileMetaData(
-        storageType: StorageType,
-        filePath : String,
-        originalFileName: String,
-        fileSize: Long,
-        fileUrl: String
+    storageType: StorageType,
+    filePath : String,
+    originalFileName: String,
+    fileSize: Long,
+    fileUrl: String
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,7 +1,7 @@
-package com.jydev.media.file.infra
+package com.jydev.domain.media.file.infra
 
-import com.jydev.media.file.MediaFileRepository
-import com.jydev.media.file.StorageConfiguration
+import com.jydev.domain.media.file.MediaFileRepository
+import com.jydev.domain.media.file.StorageConfiguration
 import org.springframework.stereotype.Component
 import java.lang.IllegalArgumentException
 

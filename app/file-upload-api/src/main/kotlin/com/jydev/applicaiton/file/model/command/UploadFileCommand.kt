@@ -1,6 +1,6 @@
 package com.jydev.applicaiton.file.model.command
 
-import com.jydev.media.file.StorageType
+import com.jydev.domain.media.file.StorageType
 import java.io.InputStream
 
 data class UploadFileCommand(

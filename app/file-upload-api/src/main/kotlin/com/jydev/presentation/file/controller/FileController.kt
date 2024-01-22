@@ -6,7 +6,7 @@ import com.jydev.applicaiton.file.model.command.DeleteFileCommand
 import com.jydev.applicaiton.file.model.command.UploadFileCommand
 import com.jydev.presentation.file.MultipartFilePathResolver
 import com.jydev.presentation.file.model.response.UploadFileResponse
-import com.jydev.media.file.StorageType
+import com.jydev.domain.media.file.StorageType
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.PathVariable

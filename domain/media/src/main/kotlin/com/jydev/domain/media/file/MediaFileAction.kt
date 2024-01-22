@@ -1,12 +1,12 @@
-package com.jydev.media.file
+package com.jydev.domain.media.file
 
 sealed class MediaFileAction {
 
     data class StoreMediaFile(
-            val command: MediaFileStrategy.StoreFileCommand
+            val command: FileStrategy.StoreFileCommand
     ) : MediaFileAction()
 
     data class DeleteMediaFile(
-            val command: MediaFileStrategy.DeleteFileCommand
+            val command: FileStrategy.DeleteFileCommand
     ) : MediaFileAction()
 }
