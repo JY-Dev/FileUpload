@@ -1,12 +1,10 @@
-package com.jydev.domain.media.file.infra
+package com.jydev.domain.media.file
 
-import com.jydev.domain.media.file.MediaFileRepository
-import com.jydev.domain.media.file.StorageConfiguration
 import org.springframework.stereotype.Component
 import java.lang.IllegalArgumentException
 
 @Component
-class FileRepositoryResolver(
+class MediaFileRepositoryResolver(
         private val fileRepositories : List<MediaFileRepository>
 ) {
 

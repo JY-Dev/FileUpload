@@ -1,14 +1,10 @@
-package com.jydev.domain.media.file.infra
+package com.jydev.domain.media.file
 
-import com.jydev.domain.media.file.MediaFileAction
-import com.jydev.domain.media.file.MediaFileProcessor
-import com.jydev.domain.media.file.MediaFileStrategy
-import com.jydev.domain.media.file.StorageConfiguration
 import org.springframework.stereotype.Component
 
 @Component
 class MediaFileProcessorFactory(
-        private val fileRepositoryResolver: FileRepositoryResolver
+        private val fileRepositoryResolver: MediaFileRepositoryResolver
 ) {
 
     fun create(

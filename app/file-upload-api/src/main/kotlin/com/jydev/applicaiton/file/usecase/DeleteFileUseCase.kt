@@ -5,8 +5,7 @@ import com.jydev.applicaiton.file.model.command.DeleteFileCommand
 import com.jydev.domain.media.file.FileStrategy
 import com.jydev.domain.media.file.MediaFileAction
 import com.jydev.domain.media.file.MediaFileMetaDataRepository
-import com.jydev.domain.media.file.MediaFileStrategy
-import com.jydev.domain.media.file.infra.MediaFileProcessorFactory
+import com.jydev.domain.media.file.MediaFileProcessorFactory
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
