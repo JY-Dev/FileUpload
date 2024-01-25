@@ -1,6 +1,5 @@
 package com.jydev.domain.media.file.infra
 
-import com.jydev.domain.media.file.FileStrategy
 import com.jydev.domain.media.file.MediaFileAction
 import com.jydev.domain.media.file.MediaFileRepository
 import com.jydev.domain.media.file.StorageConfiguration
