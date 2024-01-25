@@ -4,14 +4,21 @@ import com.jydev.domain.media.file.MediaFileAction
 import com.jydev.domain.media.file.MediaFileRepository
 import com.jydev.domain.media.file.StorageConfiguration
 
-class FakeLocalFileRepository : MediaFileRepository {
+class FakeMediaFileRepository : MediaFileRepository {
 
-    override val storageConfigClass: Class<out StorageConfiguration> = StorageConfiguration.Local::class.java
+    override val storageConfigClass: Class<out StorageConfiguration>
+        = StorageConfiguration.S3::class.java
+
+    var isSaveCall = false
+        private set
+    var isDeleteCall = false
+        private set
+
     override fun save(storageConfiguration: StorageConfiguration, command: MediaFileAction.StoreFileCommand) {
-        TODO("Not yet implemented")
+        isSaveCall = true
     }
 
     override fun delete(storageConfiguration: StorageConfiguration, command: MediaFileAction.DeleteFileCommand) {
-        TODO("Not yet implemented")
+        isDeleteCall = true
     }
 }

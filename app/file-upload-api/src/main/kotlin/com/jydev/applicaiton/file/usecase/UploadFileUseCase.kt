@@ -24,9 +24,9 @@ class UploadFileUseCase(
     operator fun invoke(command: UploadFileCommand): UploadFileModel {
         val storageConfiguration = storageConfigurationResolver.resolve(command.storageType)
         val storeFileCommand = createStoreFileCommand(command)
-        val storeAction = MediaFileAction.StoreMediaFile(storeFileCommand)
+        val storeAction = MediaFileAction.StoreMediaFile(storeFileCommand, storageConfiguration)
 
-        processorFactory.create(storeAction, storageConfiguration)
+        processorFactory.create(storeAction)
             .executeAction()
 
         val fileUrl = constructFileURI(storageConfiguration.baseUrl, command.filePath).toString()
@@ -47,7 +47,7 @@ class UploadFileUseCase(
         )
     }
 
-    private fun createStoreFileCommand(command: UploadFileCommand) = FileStrategy.StoreFileCommand(
+    private fun createStoreFileCommand(command: UploadFileCommand) = MediaFileAction.StoreFileCommand(
         fileInputStream = command.fileInputStream,
         filePath = command.filePath,
         fileContentType = command.fileContentType,

@@ -8,20 +8,14 @@ class MediaFileProcessorFactory(
 ) {
 
     fun create(
-        mediaFileAction: MediaFileAction,
-        storageConfiguration: StorageConfiguration
+        mediaFileAction: MediaFileAction
     ): MediaFileProcessor {
-
+        val storageConfiguration = mediaFileAction.storageConfiguration
         val repository = fileRepositoryResolver.resolve(storageConfiguration)
-
-        val mediaFileStrategy = MediaFileStrategy(
-                fileRepository = repository,
-                storageConfiguration = storageConfiguration
-        )
 
         return MediaFileProcessor(
                 action = mediaFileAction,
-                fileStrategy = mediaFileStrategy
+                fileRepository = repository
         )
     }
 }

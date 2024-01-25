@@ -25,10 +25,10 @@ class DeleteFileUseCase(
                 ?: throw IllegalArgumentException("FileMetaData not exist for fileUrl")
 
         val storageConfiguration = storageConfigurationResolver.resolve(fileMetaData.storageType)
-        val deleteCommand = FileStrategy.DeleteFileCommand(fileMetaData.filePath)
-        val action = MediaFileAction.DeleteMediaFile(deleteCommand)
+        val deleteCommand = MediaFileAction.DeleteFileCommand(fileMetaData.filePath)
+        val action = MediaFileAction.DeleteMediaFile(deleteCommand, storageConfiguration)
 
-        processorFactory.create(action, storageConfiguration)
+        processorFactory.create(action)
                 .executeAction()
 
         fileMetaDataRepository.delete(fileMetaData)

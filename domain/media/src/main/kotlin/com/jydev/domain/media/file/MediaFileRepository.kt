@@ -5,12 +5,12 @@ interface MediaFileRepository {
 
     fun save(
         storageConfiguration: StorageConfiguration,
-        command : FileStrategy.StoreFileCommand
+        command : MediaFileAction.StoreFileCommand
     )
 
     fun delete(
         storageConfiguration: StorageConfiguration,
-        command : FileStrategy.DeleteFileCommand
+        command : MediaFileAction.DeleteFileCommand
     )
 
     fun resolveConfiguration(configuration : StorageConfiguration) : Boolean {

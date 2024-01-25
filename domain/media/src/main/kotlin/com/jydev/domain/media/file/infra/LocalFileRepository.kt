@@ -1,8 +1,8 @@
 package com.jydev.domain.media.file.infra
 
 import com.jydev.domain.media.file.FileStrategy
+import com.jydev.domain.media.file.MediaFileAction
 import com.jydev.domain.media.file.MediaFileRepository
-import com.jydev.domain.media.file.MediaFileStrategy
 import com.jydev.domain.media.file.StorageConfiguration
 import org.springframework.stereotype.Repository
 import java.io.IOException
@@ -16,7 +16,7 @@ class LocalFileRepository : MediaFileRepository {
     private val localConfigClass = StorageConfiguration.Local::class.java
     override val storageConfigClass: Class<out StorageConfiguration> = localConfigClass
 
-    override fun save(storageConfiguration: StorageConfiguration, command: FileStrategy.StoreFileCommand) {
+    override fun save(storageConfiguration: StorageConfiguration, command: MediaFileAction.StoreFileCommand) {
 
         validateStoreFile(command)
 
@@ -30,7 +30,7 @@ class LocalFileRepository : MediaFileRepository {
             Files.copy(command.fileInputStream, filePath, StandardCopyOption.REPLACE_EXISTING)
         } catch (exception: IOException) {
 
-            val deleteCommand = FileStrategy.DeleteFileCommand(command.filePath)
+            val deleteCommand = MediaFileAction.DeleteFileCommand(command.filePath)
             delete(storageConfiguration, deleteCommand)
 
             throw IllegalArgumentException(
@@ -39,7 +39,7 @@ class LocalFileRepository : MediaFileRepository {
         }
     }
 
-    override fun delete(storageConfiguration: StorageConfiguration, command: FileStrategy.DeleteFileCommand) {
+    override fun delete(storageConfiguration: StorageConfiguration, command: MediaFileAction.DeleteFileCommand) {
 
         val config = castConfiguration(storageConfiguration, localConfigClass)
 
@@ -54,7 +54,7 @@ class LocalFileRepository : MediaFileRepository {
         }
     }
 
-    private fun validateStoreFile(command: FileStrategy.StoreFileCommand) {
+    private fun validateStoreFile(command: MediaFileAction.StoreFileCommand) {
 
         val filePath: String = command.filePath
 
