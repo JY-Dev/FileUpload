@@ -5,7 +5,7 @@
 - sudo ./run.sh
 
 # 프로젝트 개요
-[Kotlin과 MultiModule을 적용한 Spring Boot Application 작성에 익숙해지기 위해 FileUpload 기능을 각 레이어(Presentation, Application, Domain)로 나눠서 해당 조건을 기반으로 설계를 연습하기 위해 작성한 프로젝트 입니다. 
+Kotlin과 MultiModule을 적용한 Spring Boot Application 작성에 익숙해지기 위해 FileUpload 기능을 각 레이어(Presentation, Application, Domain)로 나눠서 해당 조건을 기반으로 설계를 연습하기 위해 작성한 프로젝트 입니다. 
 
 ## Domain Layer
 
